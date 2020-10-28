@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  usuario: one
+  usuarioid: 
+  tipo: MyString
+  gravidade: MyString
+  titulo: MyString
+  descricao: MyText
+  privacidade: false
+  status: 
+  arquivos: 
+  comentarios: 
+
+two:
+  usuario: two
+  usuarioid: 
+  tipo: MyString
+  gravidade: MyString
+  titulo: MyString
+  descricao: MyText
+  privacidade: false
+  status: 
+  arquivos: 
+  comentarios: 

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  denuncia: one
+  usuario: one
+  descricao: MyText
+  arquivo: 
+
+two:
+  denuncia: two
+  usuario: two
+  descricao: MyText
+  arquivo: 
