@@ -16,6 +16,10 @@ class QueixasController < ApplicationController
   # POST /queixas
   def create
     @queixa = Queixa.new(queixa_params)
+    @arquivo = @queixa.build_arquivo
+    @status = @queixa.build_status
+    @usuario = @queixa.build_usuario
+    @comentario = @queixa.build_comentario
 
     if @queixa.save
       render json: @queixa, status: :created, location: @queixa
