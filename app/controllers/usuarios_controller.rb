@@ -16,6 +16,8 @@ class UsuariosController < ApplicationController
   # POST /usuarios
   def create
     @usuario = Usuario.new(usuario_params)
+    @queixa = @usuario.build_queixa
+    @perfil = @usuario.build_perfil
 
     if @usuario.save
       render json: @usuario, status: :created, location: @usuario
