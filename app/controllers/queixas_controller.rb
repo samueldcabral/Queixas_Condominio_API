@@ -16,12 +16,20 @@ class QueixasController < ApplicationController
   # POST /queixas
   def create
     @queixa = Queixa.new(queixa_params)
-    @arquivo = @queixa.build_arquivo
     @status = @queixa.build_status
-    @usuario = @queixa.build_usuario
-    @comentario = @queixa.build_comentario
+
+     # Find
+     if params[:usuario_id]
+      @usuario = Usuario.find(params[:usuario_id])
+      # push to array
+      @queixa.usuario_ids << @usuario.id
+    end
 
     if @queixa.save
+      @usuarios = Queixa.where(id: queixa_params[:usuario_ids])
+      # Create join table records
+      @usuarios.each { |usuario| usuario.usuarios << @queixas }
+
       render json: @queixa, status: :created, location: @queixa
     else
       render json: @queixa.errors, status: :unprocessable_entity

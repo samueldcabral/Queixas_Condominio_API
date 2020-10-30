@@ -5,9 +5,8 @@ class Usuario
   field :senha, type: String
   field :endereco, type: String
   belongs_to :perfil
-  belongs_to :queixa
   has_many :comentarios
-  has_many :queixas
+  has_and_belongs_to_many :queixas
   
 
 end
