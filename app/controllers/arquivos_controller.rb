@@ -16,6 +16,8 @@ class ArquivosController < ApplicationController
   # POST /arquivos
   def create
     @arquivo = Arquivo.new(arquivo_params)
+    @comentario = @arquivo.build_comentario
+    @queixa = @arquivo.build_queixa
 
     if @arquivo.save
       render json: @arquivo, status: :created, location: @arquivo

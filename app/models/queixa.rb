@@ -6,10 +6,9 @@ class Queixa
   field :titulo, type: String
   field :descricao, type: String
   field :privacidade, type: Mongoid::Boolean
-  belongs_to :usuario
-  belongs_to :comentario
-  belongs_to :arquivo
+  has_and_belongs_to_many :usuarios
+  has_many :comentarios
+  has_many :arquivos
   belongs_to :status
-  has_many :usuarios
 
 end
