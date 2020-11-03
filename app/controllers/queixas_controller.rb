@@ -18,6 +18,14 @@ class QueixasController < ApplicationController
     @queixa = Queixa.new(queixa_params)
 
     @queixa.status_id = params[:status_id]
+    @queixa.criado_por = params[:criado_por]
+
+    # Find
+    if params[:criado_por]
+      @usuario = Usuario.find(params[:criado_por])
+      # push to array
+      @queixa.usuario_ids << @usuario.id
+    end
 
     if @queixa.save
       render json: @queixa, status: :created, location: @queixa
