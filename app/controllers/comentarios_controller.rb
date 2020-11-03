@@ -17,6 +17,19 @@ class ComentariosController < ApplicationController
   def create
     @comentario = Comentario.new(comentario_params)
 
+    # Find
+    if params[:usuario_id]
+      @usuario = Usuario.find(params[:usuario_id])
+
+      @queixa = Queixa.find(params[:queixa_id])
+      # push to array
+      @queixa.usuario_ids << @usuario.id
+      @queixa.update_attribute(:usuario_ids, @queixa.usuario_ids)
+    end
+
+    @comentario.usuario_id = params[:usuario_id]
+    @comentario.queixa_id = params[:queixa_id]
+
     if @comentario.save
       render json: @comentario, status: :created, location: @comentario
     else

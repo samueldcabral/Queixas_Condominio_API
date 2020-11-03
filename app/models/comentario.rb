@@ -4,5 +4,5 @@ class Comentario
   field :descricao, type: String
   belongs_to :usuario
   has_many :arquivos
-  belongs_to :queixas
+  belongs_to :queixa
 end

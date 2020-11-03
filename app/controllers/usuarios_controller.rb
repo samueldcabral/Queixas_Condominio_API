@@ -16,18 +16,10 @@ class UsuariosController < ApplicationController
   # POST /usuarios
   def create
     @usuario = Usuario.new(usuario_params)
-    # @queixa = @usuario.build_queixa
-    @perfil = @usuario.build_perfil
 
-    # Find
-    if params[:queixa_id]
-      @queixa = Queixa.find(params[:queixa_id])
-      # push to array
-      @usuario.queixa_ids << @queixa.id
-    end
+    @usuario.perfil_id = params[:perfil_id]
 
     if @usuario.save
-  
       render json: @usuario, status: :created, location: @usuario
     else
       render json: @usuario.errors, status: :unprocessable_entity
