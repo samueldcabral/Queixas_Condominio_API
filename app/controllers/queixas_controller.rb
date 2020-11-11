@@ -50,6 +50,32 @@ class QueixasController < ApplicationController
     @queixa.destroy
   end
 
+  def find_by_criado_por
+    @queixa = Queixa.where(:criado_por => params[:criado_por])
+    render json: @queixa
+  end
+
+  def find_by_criado_por_status_id
+    @queixa = Queixa.where(:criado_por => params[:criado_por]).where(:status_id => params[:status_id])
+    render json: @queixa
+  end
+
+  def find_by_status_id
+    @queixa = Queixa.where(:status_id => params[:status_id])
+    render json: @queixa
+  end
+
+  def find_by_privacidade
+    @queixa = Queixa.where(:privacidade => params[:privacidade])
+    render json: @queixa
+  end
+
+  def find_by_tipo
+    @queixa = Queixa.where(:tipo => params[:tipo])
+    render json: @queixa
+  end
+  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_queixa
