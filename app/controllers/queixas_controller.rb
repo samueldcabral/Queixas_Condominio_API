@@ -47,6 +47,9 @@ class QueixasController < ApplicationController
 
   # DELETE /queixas/1
   def destroy
+@comentarios = Comentario.where(:queixa_id => params[:id])
+    @comentarios.destroy
+
     @queixa.destroy
   end
 
