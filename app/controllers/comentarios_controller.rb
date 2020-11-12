@@ -51,6 +51,11 @@ class ComentariosController < ApplicationController
     @comentario.destroy
   end
 
+  def find_by_queixa_id
+    @comentario = Comentario.where(:queixa_id => params[:queixa_id])
+    render json: @comentario
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comentario
