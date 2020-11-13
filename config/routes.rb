@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   get "queixas/find_by_privacidade/:privacidade", to: "queixas#find_by_privacidade"
   get "queixas/find_by_tipo/:tipo", to: "queixas#find_by_tipo"
 
+  get "comentarios/find_by_queixa_id/:queixa_id", to: "comentarios#find_by_queixa_id"
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
