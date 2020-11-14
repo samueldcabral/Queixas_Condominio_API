@@ -14,17 +14,17 @@ class UsuariosController < ApplicationController
   end
 
   # POST /usuarios
-  def create
-    @usuario = Usuario.new(usuario_params)
+  # def create
+  #   @usuario = Usuario.new(usuario_params)
 
-    @usuario.perfil_id = params[:perfil_id]
+  #   @usuario.perfil_id = params[:perfil_id]
 
-    if @usuario.save
-      render json: @usuario, status: :created, location: @usuario
-    else
-      render json: @usuario.errors, status: :unprocessable_entity
-    end
-  end
+  #   if @usuario.save
+  #     render json: @usuario, status: :created, location: @usuario
+  #   else
+  #     render json: @usuario.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # PATCH/PUT /usuarios/1
   def update

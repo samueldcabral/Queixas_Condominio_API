@@ -8,7 +8,7 @@ class Queixa
   field :privacidade, type: Mongoid::Boolean
   field :criado_por, type: String
   has_and_belongs_to_many :usuarios
-  has_many :comentarios
+  has_many :comentarios, dependent: :destroy
   belongs_to :status
 
 end
