@@ -37,6 +37,14 @@ class UsuariosController < ApplicationController
 
   # DELETE /usuarios/1
   def destroy
+    @queixas = Queixa.where(:criado_por => params[:id])
+    @comentariosUsuario = Comentario.where(:usuario_id => params[:id])
+
+    #falta excluir todos os comentários vinculados a queixa que outros usuários fizeram. Algo do tipo que está a baixo
+    # @comentariosOutrosUsuarios = Comentario.where(:queixa_id => @queixas[:id]) #esse @queixas é o resultado de todas as queixas do usuario, para verificar quais comentários estão nessas queixas
+
+    @comentariosUsuario.destroy
+    @queixas.destroy
     @usuario.destroy
   end
 
