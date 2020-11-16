@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
+  devise_for :usuarios
   resources :comentarios
   resources :queixas
   resources :statuses
   resources :arquivos
   resources :usuarios
   resources :perfils
+
+  devise_scope :usuario do
+    post "sign_up", to: "registrations#create"
+    post "sign_in", to: "sessions#create"
+  end
 
   get "queixas/find_by_criado_por/:criado_por", to: "queixas#find_by_criado_por"
   get "queixas/find_by_criado_por_status_id/:criado_por/:status_id", to: "queixas#find_by_criado_por_status_id"
