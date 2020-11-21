@@ -41,3 +41,5 @@ gem 'devise'
 gem 'simple_token_authentication', '~> 1.0'
 
 gem 'rack-cors'
+
+gem 'active_model_serializers', '~> 0.10.0'

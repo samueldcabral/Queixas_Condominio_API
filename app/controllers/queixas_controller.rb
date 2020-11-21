@@ -1,6 +1,6 @@
 class QueixasController < ApplicationController
   before_action :set_queixa, only: [:show, :update, :destroy]
-
+  
   # GET /queixas
   def index
     @queixas = Queixa.all
