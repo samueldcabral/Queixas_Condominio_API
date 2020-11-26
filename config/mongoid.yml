@@ -168,6 +168,14 @@ development:
     # (default: false)
     # use_utc: false
 
+production:
+  sessions:
+    default:
+      uri: mongodb+srv://ifpb:ifpb@deps.jobfh.mongodb.net/ifpb?retryWrites=true&w=majority
+      options:
+        skip_version_check: true
+        safe: true
+
 test:
   clients:
     default:
